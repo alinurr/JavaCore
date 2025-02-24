@@ -15,7 +15,7 @@ public class Main {
         cappuccino.category = "coffee";
 
         Product croissant = new Product();
-        croissant.name = "croissant";
+        croissant.name = "Croissant";
         croissant.price = 7.0;
         croissant.quantity = 3;
         croissant.category = "bakery";
@@ -40,6 +40,9 @@ public class Main {
 
         convertArray(products);
         System.out.println(products);
+
+        deleteProduct(products, 4.0, "Cheesecake");
+        System.out.println(Arrays.toString(products));
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -68,21 +71,22 @@ public class Main {
         }
     }
 
-    public static Product[] insertProduct(Product p){
-        Product[] products = new Product[6];
+    public static Product[] insertProduct(Product[] products, Product p){
+        Product[] products1 = new Product[products.length + 1];
         for (int i = 0; i < products.length; i ++){
             products[i] = p;
         }
         return products;
     }
 
-    public static void deleteProduct(Product[] p, int price, String productName){
-        Product[] products = new Product[p.length - 1];
-        for(int i = 0, j = 0; i < p.length; i++){
-            //if (i != price && i productName){
-
-            //}
+    public static Product[] deleteProduct(Product[] products, double price, String productName){
+        Product[] products1 = new Product[products.length - 1];
+        for(int i = 0, j = 0; i < products.length; i++){
+            if (products[i].price != price && !products[i].name.equals(productName)){
+                products1[j] = products[i];
+            }
         }
+        return products1;
     }
 
     public static String[] convertArray(Product[] products){
