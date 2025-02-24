@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Product espresso = new Product();
@@ -34,10 +36,10 @@ public class Main {
         System.out.println(products1);*/
 
         sortProductsByPrice(products);
-        for (Product p : products) {
-            System.out.println(p);
-        }
+        System.out.println(Arrays.toString(products));
 
+        convertArray(products);
+        System.out.println(products);
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -66,7 +68,6 @@ public class Main {
         }
     }
 
-
     public static Product[] insertProduct(Product p){
         Product[] products = new Product[6];
         for (int i = 0; i < products.length; i ++){
@@ -75,7 +76,22 @@ public class Main {
         return products;
     }
 
-    public static void deleteProduct(Product p, int price, String productName){
+    public static void deleteProduct(Product[] p, int price, String productName){
+        Product[] products = new Product[p.length - 1];
+        for(int i = 0, j = 0; i < p.length; i++){
+            //if (i != price && i productName){
 
+            //}
+        }
+    }
+
+    public static String[] convertArray(Product[] products){
+        String[] convertedArray = new String[products.length];
+        for (int i = 0; i < products.length; i++){
+            convertedArray[i] = "Product name: " + products[i].name + "Price: " + products[i].price +
+                    "Quantity: " + products[i].quantity +
+                    "Category: " + products[i].category;
+        }
+        return convertedArray;
     }
 }
