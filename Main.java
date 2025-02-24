@@ -29,20 +29,22 @@ public class Main {
         Product[] products = {espresso, cappuccino, croissant, pie};
         searchProduct(products, "Espresso");
 
-        /*Product[] products1 = new Product[6];
-        for (int i = 0; i < products1.length; i++){
-            insertProduct(products[i]);
-        }
-        System.out.println(products1);*/
+        Product cake = new Product();
+        pie.name = "Whoopie Cake";
+        pie.price = 5.5;
+        pie.quantity = 1;
+        pie.category = "bakery";
+        Product[] newProducts = insertProduct(products, cake);
+        System.out.println("New array after inserting new product: " + Arrays.toString(newProducts));
 
         sortProductsByPrice(products);
-        System.out.println(Arrays.toString(products));
+        System.out.println("Sort products by price and name: " + Arrays.toString(products));
 
         convertArray(products);
-        System.out.println(products);
+        System.out.println(Arrays.toString(products));
 
         deleteProduct(products, 4.0, "Cheesecake");
-        System.out.println(Arrays.toString(products));
+        System.out.println("Delete product from array: " + Arrays.toString(products));
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -55,18 +57,13 @@ public class Main {
 
     public static void sortProductsByPrice(Product[] products){
         int n = products.length;
-        boolean swapped;
 
         for (int i = 0; i < n - 1; i++) {
-            swapped = false;
-            for (int j = 0; j < n - 1 - i; j++) {
-                if (products[j].price > products[j + 1].price) {
-                    // Swap arr[j] and arr[j + 1]
-                    Product temp = products[j];
-                    products[j] = products[j + 1];
-                    products[j + 1] = temp;
-                    swapped = true;
-                }
+            if (products[i].price > products[i + 1].price) {
+                Product temp = products[i];
+                products[i] = products[i + 1];
+                products[i + 1] = temp;
+                i = 0;
             }
         }
     }
@@ -74,9 +71,10 @@ public class Main {
     public static Product[] insertProduct(Product[] products, Product p){
         Product[] products1 = new Product[products.length + 1];
         for (int i = 0; i < products.length; i ++){
-            products[i] = p;
+            products1[i] = products[i];
         }
-        return products;
+        products1[products.length] = p;
+        return products1;
     }
 
     public static Product[] deleteProduct(Product[] products, double price, String productName){

@@ -3,4 +3,9 @@ public class Product {
     double price;
     int quantity;
     String category;
+
+    @Override
+    public String toString(){
+        return name + " " + price + " " + quantity + " " + category;
+    }
 }
