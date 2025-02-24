@@ -27,7 +27,7 @@ public class Main {
         Product[] products = {espresso, cappuccino, croissant, pie};
         searchProduct(products, "Espresso");
 
-        Product[] products1 = new Product[8];
+        Product[] products1 = new Product[6];
         for (int i = 0; i < products1.length; i++){
             insertProduct(products[i]);
         }
@@ -49,5 +49,9 @@ public class Main {
             products[i] = p;
         }
         return products;
+    }
+
+    public static void deleteProduct(Product p, int price, String productName){
+
     }
 }
