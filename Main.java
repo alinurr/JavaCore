@@ -27,11 +27,16 @@ public class Main {
         Product[] products = {espresso, cappuccino, croissant, pie};
         searchProduct(products, "Espresso");
 
-        Product[] products1 = new Product[6];
+        /*Product[] products1 = new Product[6];
         for (int i = 0; i < products1.length; i++){
             insertProduct(products[i]);
         }
-        System.out.println(products1);
+        System.out.println(products1);*/
+
+        sortProductsByPrice(products);
+        for (Product p : products) {
+            System.out.println(p);
+        }
 
     }
 
@@ -42,6 +47,25 @@ public class Main {
             }
         }
     }
+
+    public static void sortProductsByPrice(Product[] products){
+        int n = products.length;
+        boolean swapped;
+
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (products[j].price > products[j + 1].price) {
+                    // Swap arr[j] and arr[j + 1]
+                    Product temp = products[j];
+                    products[j] = products[j + 1];
+                    products[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+        }
+    }
+
 
     public static Product[] insertProduct(Product p){
         Product[] products = new Product[6];
