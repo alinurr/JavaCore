@@ -48,6 +48,8 @@ public class Main {
         categories[2] = new Product[]{orangeJuice, greenTea,  americano};
 
         printCategories(categories);
+        System.out.println("Search product by name: ");
+        searchProductInCategories(categories, "Potato Chips");
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -104,6 +106,16 @@ public class Main {
         for (int i = 0; i < categories.length; i++){
             for (int j = 0; j < categories[i].length; j++){
                 System.out.println(categories[i][j]);
+            }
+        }
+    }
+
+    public static void searchProductInCategories(Product[][] categories, String product){
+        for (int i = 0;i < categories.length; i++){
+            for (int j = 0; j < categories[i].length; j++){
+                if (categories[i][j].name.equals(product)){
+                    System.out.println(categories[i][j]);
+                }
             }
         }
     }
