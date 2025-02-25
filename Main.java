@@ -34,7 +34,7 @@ public class Main {
 
         //Category Beverages
         Product orangeJuice = new Product("Orange Juice", 4.0);
-        Product greenTes = new Product("Green Tea", 3.0);
+        Product greenTea = new Product("Green Tea", 3.0);
         Product americano = new Product("Americano", 3.5);
 
         //Snacks
@@ -44,8 +44,10 @@ public class Main {
 
         Product[][] categories = new Product[3][];
         categories[0] = new Product[]{chocolateCake, bears, macarons};
-        categories[1] = new Product[]{};
+        categories[1] = new Product[]{potatoChips, trailMix, popcorn};
+        categories[2] = new Product[]{orangeJuice, greenTea,  americano};
 
+        printCategories(categories);
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -98,5 +100,11 @@ public class Main {
         return convertedArray;
     }
 
-
+    public static void printCategories(Product[][] categories){
+        for (int i = 0; i < categories.length; i++){
+            for (int j = 0; j < categories[i].length; j++){
+                System.out.println(categories[i][j]);
+            }
+        }
+    }
 }
