@@ -2,38 +2,17 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Product espresso = new Product();
-        espresso.name = "Espresso";
-        espresso.price = 5.5;
-        espresso.quantity = 2;
-        espresso.category = "coffee";
+        Product espresso = new Product("Espresso", 5.5, 2, "coffee");
+        Product cappuccino = new Product("Espresso", 6.5, 1, "coffee");
+        Product croissant = new Product("Croissant", 7.0, 3, "bakery");
+        Product pie = new Product("Cheesecake", 4.0, 2, "bakery");
 
-        Product cappuccino = new Product();
-        cappuccino.name = "Espresso";
-        cappuccino.price = 6.5;
-        cappuccino.quantity = 1;
-        cappuccino.category = "coffee";
-
-        Product croissant = new Product();
-        croissant.name = "Croissant";
-        croissant.price = 7.0;
-        croissant.quantity = 3;
-        croissant.category = "bakery";
-
-        Product pie = new Product();
-        pie.name = "Cheesecake";
-        pie.price = 4.0;
-        pie.quantity = 2;
-        pie.category = "bakery";
 
         Product[] products = {espresso, cappuccino, croissant, pie};
+
         searchProduct(products, "Espresso");
 
-        Product cake = new Product();
-        pie.name = "Whoopie Cake";
-        pie.price = 5.5;
-        pie.quantity = 1;
-        pie.category = "bakery";
+        Product cake = new Product("Whoopie Cake", 5.5, 1, "bakery");
         Product[] newProducts = insertProduct(products, cake);
         System.out.println("New array after inserting new product: " + Arrays.toString(newProducts));
 
@@ -45,6 +24,28 @@ public class Main {
 
         deleteProduct(products, 4.0, "Cheesecake");
         System.out.println("Delete product from array: " + Arrays.toString(products));
+
+
+        //Category Sweets
+        Product chocolateCake = new Product("Chocolate Cake", 20.0);
+        Product bears = new Product("Gummy Bears", 15.5);
+        Product macarons = new Product("Macarons", 10.0);
+
+
+        //Category Beverages
+        Product orangeJuice = new Product("Orange Juice", 4.0);
+        Product greenTes = new Product("Green Tea", 3.0);
+        Product americano = new Product("Americano", 3.5);
+
+        //Snacks
+        Product potatoChips = new Product("Potato Chips", 5.0);
+        Product trailMix = new Product("Trail Mix", 4.5);
+        Product popcorn = new Product("Popcorn", 3.5);
+
+        Product[][] categories = new Product[3][];
+        categories[0] = new Product[]{chocolateCake, bears, macarons};
+        categories[1] = new Product[]{};
+
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -96,4 +97,6 @@ public class Main {
         }
         return convertedArray;
     }
+
+
 }
