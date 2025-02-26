@@ -61,6 +61,9 @@ public class Main {
 
         System.out.println("-----------------------");
         filterProductsByQuantity(products, 2);
+
+        System.out.println("-----------------------");
+        sumOfProducts(products);
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -154,5 +157,13 @@ public class Main {
                 System.out.println(p);
             }
         }
+    }
+
+    public static void sumOfProducts(Product[] products){
+        double sum = 0;
+        for (Product p : products){
+            sum += p.price * p.quantity;
+        }
+        System.out.println(sum);
     }
 }
