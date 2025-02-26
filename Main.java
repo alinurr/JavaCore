@@ -58,6 +58,9 @@ public class Main {
         System.out.println("-----------------------");
         System.out.println("Sort each category by price: ");
         sortCategoriesByPrice(categories);
+
+        System.out.println("-----------------------");
+        filterProductsByQuantity(products, 2);
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -141,6 +144,14 @@ public class Main {
                     //System.out.println(categories[i][j]);
                 }
                 System.out.println(categories[i][j]);
+            }
+        }
+    }
+
+    public static void filterProductsByQuantity(Product[] products, int minQuantity){
+        for (Product p : products){
+            if (p.quantity < minQuantity){
+                System.out.println(p);
             }
         }
     }
