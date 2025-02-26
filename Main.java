@@ -17,7 +17,7 @@ public class Main {
         System.out.println("New array after inserting new product: " + Arrays.toString(newProducts));
 
         sortProductsByPrice(products);
-        System.out.println("Sort products by price and name: " + Arrays.toString(products));
+        System.out.println("Sort products by price: " + Arrays.toString(products));
 
         convertArray(products);
         System.out.println(Arrays.toString(products));
@@ -47,9 +47,17 @@ public class Main {
         categories[1] = new Product[]{potatoChips, trailMix, popcorn};
         categories[2] = new Product[]{orangeJuice, greenTea,  americano};
 
+        System.out.println("-----------------------");
+        System.out.println("Print products of each category: ");
         printCategories(categories);
+
+        System.out.println("-----------------------");
         System.out.println("Search product by name: ");
         searchProductInCategories(categories, "Potato Chips");
+
+        System.out.println("-----------------------");
+        System.out.println("Sort each category by price: ");
+        sortCategoriesByPrice(categories);
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -116,6 +124,23 @@ public class Main {
                 if (categories[i][j].name.equals(product)){
                     System.out.println(categories[i][j]);
                 }
+            }
+        }
+    }
+
+    public static void sortCategoriesByPrice(Product[][] categories){
+        int n = categories.length;
+
+        for (int i = 0; i < n-1; i++){
+            for (int j = 0; j < categories[i].length-1; j++){
+                if (categories[i][j].price > categories[i][j+1].price){
+                    Product temp = categories[i][j];
+                    categories[i][j] = categories[i][j+1];
+                    categories[i][j+1] = temp;
+                    j = 0;
+                    //System.out.println(categories[i][j]);
+                }
+                System.out.println(categories[i][j]);
             }
         }
     }
