@@ -40,7 +40,7 @@ public class Main {
         //Snacks
         Product potatoChips = new Product("Potato Chips", 5.0);
         Product trailMix = new Product("Trail Mix", 4.5);
-        Product popcorn = new Product("Popcorn", 3.5);
+        Product popcorn = new Product("Popcorn", 10.5);
 
         Product[][] categories = new Product[3][];
         categories[0] = new Product[]{chocolateCake, bears, macarons};
@@ -60,10 +60,16 @@ public class Main {
         sortCategoriesByPrice(categories);
 
         System.out.println("-----------------------");
+        System.out.println("Products that are less than minimum quantity: ");
         filterProductsByQuantity(products, 2);
 
         System.out.println("-----------------------");
+        System.out.println("Sum of all products: ");
         sumOfProducts(products);
+
+        System.out.println("-----------------------");
+        System.out.println("Group products by category: ");
+        groupProductsByCategory(products);
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -165,5 +171,15 @@ public class Main {
             sum += p.price * p.quantity;
         }
         System.out.println(sum);
+    }
+
+    public static void groupProductsByCategory(Product[] products){
+        Product[][] categories = new Product[products.length][];
+        for (int i = 0; i < products.length-1; i++){
+            if (products[i].category.equals(products[i+1].category)){
+                categories[i][i] = products[i];
+            }
+        }
+        System.out.println(Arrays.deepToString(categories));
     }
 }
