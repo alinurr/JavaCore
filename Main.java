@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
@@ -174,12 +175,14 @@ public class Main {
     }
 
     public static void groupProductsByCategory(Product[] products){
-        Product[][] categories = new Product[products.length][];
-        for (int i = 0; i < products.length-1; i++){
-            if (products[i].category.equals(products[i+1].category)){
-                categories[i][i] = products[i];
+        String currentCategory = "";
+        for (Product p : products){
+            if(!p.category.equals(currentCategory)){
+                currentCategory = p.category;
+                System.out.println("\n" + currentCategory);
             }
+            System.out.println("  -"+ p.name);
         }
-        System.out.println(Arrays.deepToString(categories));
+
     }
 }
