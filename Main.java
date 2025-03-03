@@ -71,6 +71,14 @@ public class Main {
         System.out.println("-----------------------");
         System.out.println("Group products by category: ");
         groupProductsByCategory(products);
+
+        System.out.println("-----------------------");
+        System.out.println("Min price product: ");
+        System.out.println(minPriceProduct(products));
+
+        System.out.println("-----------------------");
+        System.out.println("Max price product: ");
+        System.out.println(maxPriceProduct(products));
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -183,6 +191,25 @@ public class Main {
             }
             System.out.println("  -"+ p.name);
         }
+    }
 
+    public static double minPriceProduct(Product[] products){
+        double minPrice = products[0].price;
+        for (int i = 0; i < products.length; i++){
+            if (products[i].price < minPrice){
+                minPrice = products[i].price;
+            }
+        }
+        return minPrice;
+    }
+
+    public static double maxPriceProduct(Product[] products){
+        double maxPrice = products[0].price;
+        for (int i = 0; i < products.length; i++){
+            if (products[i].price > maxPrice){
+                maxPrice = products[i].price;
+            }
+        }
+        return maxPrice;
     }
 }
