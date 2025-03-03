@@ -79,6 +79,10 @@ public class Main {
         System.out.println("-----------------------");
         System.out.println("Max price product: ");
         System.out.println(maxPriceProduct(products));
+
+        System.out.println("-----------------------");
+        System.out.println("Update products' price by 10%: ");
+        updateProductsPrice(products, "bakery");
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -211,5 +215,14 @@ public class Main {
             }
         }
         return maxPrice;
+    }
+
+    public static void updateProductsPrice(Product[] products, String category){
+        for (Product p : products){
+            if (p.category.equals(category)){
+                p.price = p.price * 1.1;
+            }
+        }
+        System.out.println(Arrays.toString(products));
     }
 }
