@@ -187,14 +187,22 @@ public class Main {
     }
 
     public static void groupProductsByCategory(Product[] products){
-        String currentCategory = "";
+        /*String currentCategory = "";
         for (Product p : products){
             if(!p.category.equals(currentCategory)){
                 currentCategory = p.category;
                 System.out.println("\n" + currentCategory);
             }
             System.out.println("  -"+ p.name);
+        }*/
+
+        Product[][] categories = new Product[products.length][];
+        for (int i = 0; i < products.length-1; i++){
+            if (products[i].category.equals(products[i+1].category)){
+                categories[i] = products[i];
+            }
         }
+        System.out.println(Arrays.deepToString(categories));
     }
 
     public static double minPriceProduct(Product[] products){
