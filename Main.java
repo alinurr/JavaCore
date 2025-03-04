@@ -199,7 +199,7 @@ public class Main {
         Product[][] categories = new Product[products.length][];
         for (int i = 0; i < products.length-1; i++){
             if (products[i].category.equals(products[i+1].category)){
-                categories[i] = products[i];
+                //categories[i] = products[i];
             }
         }
         System.out.println(Arrays.deepToString(categories));
