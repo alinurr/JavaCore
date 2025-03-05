@@ -2,9 +2,9 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Product espresso = new Product("Espresso", 5.5, 2, "coffee");
-        Product cappuccino = new Product("Espresso", 6.5, 1, "coffee");
-        Product croissant = new Product("Croissant", 7.0, 3, "bakery");
+        Product espresso = new Product("Espresso", 9.5, 2, "coffee");
+        Product cappuccino = new Product("Espresso", 8.5, 1, "coffee");
+        Product croissant = new Product("Croissant", 6.0, 3, "bakery");
         Product pie = new Product("Cheesecake", 4.0, 2, "bakery");
 
 
@@ -82,14 +82,15 @@ public class Main {
                 Product temp = products[i];
                 products[i] = products[i + 1];
                 products[i + 1] = temp;
-                i = 0;
+                i = -1;
             }
         }
     }
 
     public static Product[] insertProduct(Product[] products, Product p){
         Product[] products1 = new Product[products.length + 1];
-        for (int i = 0; i < products.length; i ++){
+        for (int i = 0; i < products.length;
+             i ++){
             products1[i] = products[i];
         }
         products1[products.length] = p;
