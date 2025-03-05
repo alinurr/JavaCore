@@ -45,7 +45,7 @@ public class Main {
         Product[][] categories = new Product[3][];
         categories[0] = new Product[]{chocolateCake, bears, macarons};
         categories[1] = new Product[]{potatoChips, trailMix, popcorn};
-        categories[2] = new Product[]{orangeJuice, greenTea,  americano};
+        categories[2] = new Product[]{orangeJuice, greenTea, americano};
 
         System.out.println("-----------------------");
         System.out.println("Print products of each category: ");
@@ -67,14 +67,14 @@ public class Main {
     }
 
     public static void searchProduct(Product[] products, String productName) {
-        for (Product p : products){
-            if(p.name.equals(productName)){
+        for (Product p : products) {
+            if (p.name.equals(productName)) {
                 System.out.println(p.name + " " + p.price + " " + p.quantity + " " + p.category);
             }
         }
     }
 
-    public static void sortProductsByPrice(Product[] products){
+    public static void sortProductsByPrice(Product[] products) {
         int n = products.length;
 
         for (int i = 0; i < n - 1; i++) {
@@ -87,84 +87,84 @@ public class Main {
         }
     }
 
-    public static Product[] insertProduct(Product[] products, Product p){
+    public static Product[] insertProduct(Product[] products, Product p) {
         Product[] products1 = new Product[products.length + 1];
         for (int i = 0; i < products.length;
-             i ++){
+             i++) {
             products1[i] = products[i];
         }
         products1[products.length] = p;
         return products1;
     }
 
-    public static Product[] deleteProduct(Product[] products, double price, String productName){
+    public static Product[] deleteProduct(Product[] products, double price, String productName) {
         Product[] products1 = new Product[products.length - 1];
-        for(int i = 0, j = 0; i < products.length; i++){
-            if (products[i].price != price && !products[i].name.equals(productName)){
+        for (int i = 0, j = 0; i < products.length; i++) {
+            if (products[i].price != price && !products[i].name.equals(productName)) {
                 products1[j] = products[i];
             }
         }
         return products1;
-    }
 
-    public static String[] convertArray(Product[] products){
-        String[] convertedArray = new String[products.length];
-        for (int i = 0; i < products.length; i++){
-            convertedArray[i] = "Product name: " + products[i].name + "Price: " + products[i].price +
-                    "Quantity: " + products[i].quantity +
-                    "Category: " + products[i].category;
-        }
-        return convertedArray;
     }
-
-    public static void printCategories(Product[][] categories){
-        for (int i = 0; i < categories.length; i++){
-            for (int j = 0; j < categories[i].length; j++){
-                System.out.println(categories[i][j]);
+        public static String[] convertArray (Product[] products){
+            String[] convertedArray = new String[products.length];
+            for (int i = 0; i < products.length; i++) {
+                convertedArray[i] = "Product name: " + products[i].name + "Price: " + products[i].price +
+                        "Quantity: " + products[i].quantity +
+                        "Category: " + products[i].category;
             }
+            return convertedArray;
         }
-    }
 
-    public static void searchProductInCategories(Product[][] categories, String product){
-        for (int i = 0;i < categories.length; i++){
-            for (int j = 0; j < categories[i].length; j++){
-                if (categories[i][j].name.equals(product)){
+        public static void printCategories (Product[][] categories){
+            for (int i = 0; i < categories.length; i++) {
+                for (int j = 0; j < categories[i].length; j++) {
                     System.out.println(categories[i][j]);
                 }
             }
         }
-    }
 
-    public static void sortCategoriesByPrice(Product[][] categories){
-        int n = categories.length;
-
-        for (int i = 0; i < n-1; i++){
-            for (int j = 0; j < categories[i].length-1; j++){
-                if (categories[i][j].price > categories[i][j+1].price){
-                    Product temp = categories[i][j];
-                    categories[i][j] = categories[i][j+1];
-                    categories[i][j+1] = temp;
-                    j = 0;
-                    //System.out.println(categories[i][j]);
+        public static void searchProductInCategories (Product[][] categories, String product){
+            for (int i = 0; i < categories.length; i++) {
+                for (int j = 0; j < categories[i].length; j++) {
+                    if (categories[i][j].name.equals(product)) {
+                        System.out.println(categories[i][j]);
+                    }
                 }
-                System.out.println(categories[i][j]);
             }
         }
-    }
 
-    public static void filterProductsByQuantity(Product[] products, int minQuantity){
-        for (Product p : products){
-            if (p.quantity < minQuantity){
-                System.out.println(p);
+        public static void sortCategoriesByPrice (Product[][] categories){
+            int n = categories.length;
+
+            for (int i = 0; i < n - 1; i++) {
+                for (int j = 0; j < categories[i].length - 1; j++) {
+                    if (categories[i][j].price > categories[i][j + 1].price) {
+                        Product temp = categories[i][j];
+                        categories[i][j] = categories[i][j + 1];
+                        categories[i][j + 1] = temp;
+                        j = 0;
+                        //System.out.println(categories[i][j]);
+                    }
+                    System.out.println(categories[i][j]);
+                }
             }
         }
-    }
 
-    public static void sumOfProducts(Product[] products){
-        double sum = 0;
-        for (Product p : products){
-            sum += p.price * p.quantity;
+        public static void filterProductsByQuantity (Product[] products,int minQuantity){
+            for (Product p : products) {
+                if (p.quantity < minQuantity) {
+                    System.out.println(p);
+                }
+            }
         }
-        System.out.println(sum);
-    }
+
+        public static void sumOfProducts (Product[] products){
+            double sum = 0;
+            for (Product p : products) {
+                sum += p.price * p.quantity;
+            }
+            System.out.println(sum);
+        }
 }
