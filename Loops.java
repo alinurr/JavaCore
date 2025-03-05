@@ -13,5 +13,30 @@ public class Loops {
         for(; a < b; a++, b--){
             System.out.println("Loop finished. Final a = " + a + ", b = " + b);
         }
+
+        //infinite loop
+        for (int i = 1; ; ){
+            System.out.println("Iteration number: " + i);
+            i++;
+            if (i == 100){
+                break;
+            }
+        }
+
+        //continue
+        for (int k = 0; k <= 10; k++){
+            if (k == 3 || k == 7){
+                continue;
+            }
+        }
+        System.out.println("Skipping value: 3");
+
+        //break
+        for (int k = 0; k <= 10; k++){
+            if (k == 9){
+                System.out.println("Stopping at 9");
+                break;
+            }
+        }
     }
 }
