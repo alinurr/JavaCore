@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
@@ -40,7 +41,7 @@ public class Main {
         //Snacks
         Product potatoChips = new Product("Potato Chips", 5.0);
         Product trailMix = new Product("Trail Mix", 4.5);
-        Product popcorn = new Product("Popcorn", 3.5);
+        Product popcorn = new Product("Popcorn", 10.5);
 
         Product[][] categories = new Product[3][];
         categories[0] = new Product[]{chocolateCake, bears, macarons};
@@ -60,10 +61,28 @@ public class Main {
         sortCategoriesByPrice(categories);
 
         System.out.println("-----------------------");
+        System.out.println("Products that are less than minimum quantity: ");
         filterProductsByQuantity(products, 2);
 
         System.out.println("-----------------------");
+        System.out.println("Sum of all products: ");
         sumOfProducts(products);
+
+        System.out.println("-----------------------");
+        System.out.println("Group products by category: ");
+        groupProductsByCategory(products);
+
+        System.out.println("-----------------------");
+        System.out.println("Min price product: ");
+        System.out.println(minPriceProduct(products));
+
+        System.out.println("-----------------------");
+        System.out.println("Max price product: ");
+        System.out.println(maxPriceProduct(products));
+
+        System.out.println("-----------------------");
+        System.out.println("Update products' price by 10%: ");
+        updateProductsPrice(products, "bakery");
     }
 
     public static void searchProduct(Product[] products, String productName) {
@@ -105,8 +124,9 @@ public class Main {
             }
         }
         return products1;
-
     }
+
+
         public static String[] convertArray (Product[] products){
             String[] convertedArray = new String[products.length];
             for (int i = 0; i < products.length; i++) {
@@ -160,11 +180,59 @@ public class Main {
             }
         }
 
-        public static void sumOfProducts (Product[] products){
-            double sum = 0;
-            for (Product p : products) {
-                sum += p.price * p.quantity;
-            }
-            System.out.println(sum);
+    public static void sumOfProducts(Product[] products){
+        double sum = 0;
+        for (Product p : products){
+            sum += p.price * p.quantity;
         }
+        System.out.println(sum);
+    }
+
+    public static void groupProductsByCategory(Product[] products){
+        /*String currentCategory = "";
+        for (Product p : products){
+            if(!p.category.equals(currentCategory)){
+                currentCategory = p.category;
+                System.out.println("\n" + currentCategory);
+            }
+            System.out.println("  -"+ p.name);
+        }*/
+
+        Product[][] categories = new Product[products.length][];
+        for (int i = 0; i < products.length-1; i++){
+            if (products[i].category.equals(products[i+1].category)){
+                //categories[i] = products[i];
+            }
+        }
+        System.out.println(Arrays.deepToString(categories));
+    }
+
+    public static double minPriceProduct(Product[] products){
+        double minPrice = products[0].price;
+        for (int i = 0; i < products.length; i++){
+            if (products[i].price < minPrice){
+                minPrice = products[i].price;
+            }
+        }
+        return minPrice;
+    }
+
+    public static double maxPriceProduct(Product[] products){
+        double maxPrice = products[0].price;
+        for (int i = 0; i < products.length; i++){
+            if (products[i].price > maxPrice){
+                maxPrice = products[i].price;
+            }
+        }
+        return maxPrice;
+    }
+
+    public static void updateProductsPrice(Product[] products, String category){
+        for (Product p : products){
+            if (p.category.equals(category)){
+                p.price = p.price * 1.1;
+            }
+        }
+        System.out.println(Arrays.toString(products));
+    }
 }
