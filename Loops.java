@@ -38,5 +38,20 @@ public class Loops {
                 break;
             }
         }
+
+        //loop in the loop
+        for(int i = 0; i < 6; i++){
+            for (int j = 0; j < i + 1; j++){
+                if (i * j == 6){
+                    continue;
+                }
+                if (i * j == 9){
+                    break;
+                }
+                System.out.println("Outer loop i = " + i + ", inner loop j = " + j);
+            }
+        }
+
+
     }
 }
