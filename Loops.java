@@ -52,6 +52,30 @@ public class Loops {
             }
         }
 
+        for (
+                int i = startLog();
+                conditionLog(i);
+                i = updateLog(i)
+        ){
+            System.out.println(i);
+        }
 
     }
+    //loop through methods
+    public static int startLog(){
+        System.out.println("Starting ... ");
+        return 1;
+    }
+
+    public static boolean conditionLog(int x){
+        System.out.println("Checking if x < 5");
+        return x < 5;
+    }
+
+    public static int updateLog(int x){
+        System.out.println("Incrementing x");
+        return ++x;
+    }
+
+
 }
