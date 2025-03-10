@@ -60,6 +60,11 @@ public class Loops {
             System.out.println(i);
         }
 
+
+        int[] arr = {5, 20, 3, 57, 50};
+        for (int index = 0, result = 0; index < arr.length; index++, result += arr[index]){
+            System.out.println("The final result is: " + result);
+        }
     }
     //loop through methods
     public static int startLog(){
@@ -76,6 +81,7 @@ public class Loops {
         System.out.println("Incrementing x");
         return ++x;
     }
+
 
 
 }
